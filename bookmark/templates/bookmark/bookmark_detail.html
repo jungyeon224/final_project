@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block title %}
+    Detail
+{% endblock %}
+
+{% block content %}
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bookmark/bookmark_detail_style.css' %}">
+
+<div class="box1">
+{{object.site_name}}<br/>
+{{object.url}}
+</div>
+
+    <br>
+    <td><a href="{% url 'bookmark:update' pk=bookmark.id %}" class="btn btn-success btn-sm">Modify</a></td>
+    <td><a href="{% url 'bookmark:delete' pk=bookmark.id %}" class="btn btn-danger btn-sm">Delete</a></td>
+
+{% endblock %}
+</body>
+</html>
